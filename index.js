@@ -11,6 +11,10 @@ app.use(jsonParser);
 
 //Routes
 
+app.get('/', (req, res) => {
+    res.send('Hello world!!');
+});
+
 app.get('/v1/holdem/eval/:cards', (req, res) => {
     try {
 
