@@ -185,3 +185,8 @@ The output is a JSON object with the 5 cards used in the hand, and the hand's va
   "value": 6.1211100806 
 }
 ```
+### Try it now!
+Test this API @ :
+https://us-central1-pokerapi.cloudfunctions.net/pokerAPI/v1/holdem/eval/AsKdQcJhTs9c8d
+
+(Replace that last param with the hand you want to eval)
