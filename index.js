@@ -22,7 +22,7 @@ app.use(jsonParser);
 
 //Enough setup. Let's go!
 
-//Routes
+//Routes:
 
 app.get('/v1/holdem/eval/:cards', (req, res) => {
   try {
@@ -62,6 +62,8 @@ app.get('/v1/holdem/eval/:cards', (req, res) => {
 })
 
 
+//Functions:
+
 //Turns a 2 character string into a Card object
 const initCard = (cardStr) => {
   const rank = cardStr.substring(0, 1)
@@ -69,16 +71,16 @@ const initCard = (cardStr) => {
   var value = 0
   switch(rank) {
     case 'A': {value = 14; break;}
-	case 'K': {value = 13; break;}
-	case 'Q': {value = 12; break;}
-	case 'J': {value = 11; break;}
-	case 'T': {value = 10; break;}
-	default: {value = Number(rank)}
+    case 'K': {value = 13; break;}
+    case 'Q': {value = 12; break;}
+    case 'J': {value = 11; break;}
+    case 'T': {value = 10; break;}
+    default: {value = Number(rank)}
   }
   const card = {
-	'rank': rank,		//A
-	'suit': suit,		//d[iamonds]
-	'value': value,		//14
+    'rank': rank,		//A
+    'suit': suit,		//d[iamonds]
+    'value': value,		//14
   }
   return card
 }
@@ -95,7 +97,6 @@ const initCardsArray = (handStr) => {
   }
   return cards
 }
-
 
 //Order cards from high (A) to low (2)
 const sortCardsArray = (cards) => {
