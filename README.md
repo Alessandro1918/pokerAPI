@@ -27,7 +27,7 @@ The 5 card poker hands available are:
 
 ## Breaking the Tie - The Kickers
 On the showdown, there is not uncommon that two or more players manage to assemble hands that fall in the same category. Sometimes we look for the value of the cards directly responsible for the hand, while in some cases that's the job of the kickers, the "filler" cards on a 5 card hand. Let's go to some examples!
-eb6a2d
+
 ### Ex 1:
 - Players:
   - P1: ![Badge](https://img.shields.io/badge/A-♠-%23000000) ![Badge](https://img.shields.io/badge/3-♣-%230000ff)
