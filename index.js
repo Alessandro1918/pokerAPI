@@ -1,28 +1,38 @@
 const express = require('express');
-const bodyParser = require('body-parser');
+
+//	-----------------------
+//	Config
+//	-----------------------
 
 const app = express();
 
-const jsonParser = bodyParser.json();
-app.use(jsonParser);
+app.use(express.json());
 
-//Run @ localhost:
-//http://localhost:3000/
-//Start server with npm start, and "scripts": {"start": "node index.js",}, on package.json
-//const port = process.env.PORT || 3000;
-//app.listen(port, () => {
-//    console.log(`App rodando em http://localhost:${port}`);
-//});
 
-//Run @ Firebase:
-//https://us-central1-pokerapi.cloudfunctions.net/pokerAPI/v1/holdem/eval/
+//	-----------------------
+//	Deploy
+//	-----------------------
+
+//Deploy @ localhost:
+//cd pokerAPI
+//npm start
+//Endpoint: http://localhost:3000/v1/holdem/eval/
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+    console.log(`App rodando em http://localhost:${port}`);
+});
+
+//Deploy @ Firebase:
+//cd pokerAPI
+//firebase deploy --only functions:pokerAPI
+//Endpoint: https://us-central1-pokerapi.cloudfunctions.net/pokerAPI/v1/holdem/eval/
 //const functions = require('firebase-functions');
 //exports.pokerAPI = functions.https.onRequest(app);
 
 
-//Enough setup. Let's go!
-
-//Routes:
+//	-----------------------
+//	Routes
+//	-----------------------
 
 app.get('/v1/holdem/eval/:cards', (req, res) => {
   try {
@@ -41,7 +51,7 @@ app.get('/v1/holdem/eval/:cards', (req, res) => {
 
     //Assemble all the 5 card combinations from the 7 cards array
     const hands = getHands(sorted)
-    //console.log(hands)
+    //console.log("Hands:", hands)
       
     //Get the best 5 card combination from the 7 cards available
     var bestHand = []
@@ -62,7 +72,9 @@ app.get('/v1/holdem/eval/:cards', (req, res) => {
 })
 
 
-//Functions:
+//	-----------------------
+//	Functions
+//	-----------------------
 
 //Turns a 2 character string into a Card object
 const initCard = (cardStr) => {
@@ -78,9 +90,9 @@ const initCard = (cardStr) => {
     default: {value = Number(rank)}
   }
   const card = {
-    'rank': rank,		//A
-    'suit': suit,		//d[iamonds]
-    'value': value,		//14
+    'rank': rank,    //A
+    'suit': suit,    //d[iamonds]
+    'value': value,  //14
   }
   return card
 }
