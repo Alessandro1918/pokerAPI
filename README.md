@@ -26,7 +26,7 @@ The 5 card poker hands available are:
 ```
 
 ## Breaking the Tie - The Kickers
-On the showdown, there is not uncommon that two or more players manage to assemble hands that fall in the same category. Sometimes we look for the value of the cards directly responsible for the hand, while in some cases that's the job of the kickers, the "filler" cards on a 5 card hand. Let's go to some examples!
+On the showdown, it is not uncommon that two or more players manage to assemble hands that fall in the same category. Sometimes we look for the value of the cards directly responsible for the hand, while in some cases that's the job of the kickers, the "filler" cards on a 5 card hand. Let's go to some examples!
 
 ### Ex 1:
 - Players:
@@ -102,7 +102,7 @@ On the showdown, there is not uncommon that two or more players manage to assemb
 
 
 ## The API
-Input a 7 card hand (2 player cards + 5 community cards, the order is irrelevant), and get the best 5 card game combination, along with a floating point number representing that hand's strength. The integer part of that value gives you the general rank, while the decimal places represents the cards, ordered, to get that. The notations here are:
+Input a 7 card hand (2 player cards + 5 community cards, the order is irrelevant), and get the best 5 card game combination, along with a floating point number representing that hand's strength. The integer part of that value gives you the hand's general rank, while the decimal places represent the five cards, in the right order, used for that hand. When evaluating the winner of a hand, compare the float value of each player's hand, and the biggest value gets all the chips! The notations here are:
 
 ### Input:
 Each card is represented by a 2 character string; 1 for the card's value, 1 for the card's suit:
