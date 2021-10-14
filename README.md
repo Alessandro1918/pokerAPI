@@ -4,13 +4,17 @@
 Rank poker hands! With this API, input some cards, and get a numeric value related to that hand's strength! 
 
 
+## TL; DR
+Already know the rules of the game? Jump straight to ["Evaluating a Hand"](#eval)
+
+
 ## The Game
 In a Texas Hold'Em poker game, the goal is to use the player's 2 cards, along with the 5 community table cards, to make a 5 card game with the highest value as possible.
 
 Considering the usable cards combinations (zero from the player and 5 from the table, 1 from the player and 4 from the table, or 2 from the player and 3 from the table) and the range of hands that can be assemble (10 in total, from the lowest, a High Card, to the highest, the Royal Flush), ranking a set of cards is trully an interesting math problem!
 
 
-## The Hands:
+## The Hands
 The 5 card poker hands available are:
 ```
 1. High card        //Meaning: nothing
@@ -28,80 +32,83 @@ The 5 card poker hands available are:
 ## Breaking the Tie - The Kickers
 On the showdown, it is not uncommon that two or more players manage to assemble hands that fall in the same category. Sometimes we look for the value of the cards directly responsible for the hand, while in some cases that's the job of the kickers, the "filler" cards on a 5 card hand. Let's go to some examples!
 
+<!-- V1 shield with color only on the second part:-->
+<!-- ![Badge](https://img.shields.io/badge/A-♦-%23f5b423) -->
+
 ### Ex 1:
 - Players:
-  - P1: ![Badge](https://img.shields.io/badge/A-♠-%23000000) ![Badge](https://img.shields.io/badge/3-♣-%230000ff)
-  - P2: ![Badge](https://img.shields.io/badge/A-♥-%23ff0000) ![Badge](https://img.shields.io/badge/9-♦-%23f5b423)
-  - P3: ![Badge](https://img.shields.io/badge/A-♣-%230000ff) ![Badge](https://img.shields.io/badge/10-♥-%23ff0000)
+  - P1: ![Badge](https://img.shields.io/badge/A&nbsp;♠-%23000000) ![Badge](https://img.shields.io/badge/3&nbsp;♣-%230000ff)
+  - P2: ![Badge](https://img.shields.io/badge/A&nbsp;♥-%23ff0000) ![Badge](https://img.shields.io/badge/9&nbsp;♦-%23f5b423)
+  - P3: ![Badge](https://img.shields.io/badge/A&nbsp;♣-%230000ff) ![Badge](https://img.shields.io/badge/10&nbsp;♥-%23ff0000)
 - Table:
-  - ![Badge](https://img.shields.io/badge/A-♦-%23f5b423) 
-  ![Badge](https://img.shields.io/badge/5-♣-%230000ff) 
-  ![Badge](https://img.shields.io/badge/7-♣-%230000ff) 
-  ![Badge](https://img.shields.io/badge/6-♥-%23ff0000) 
-  ![Badge](https://img.shields.io/badge/J-♥-%23ff0000)
+  - ![Badge](https://img.shields.io/badge/A&nbsp;♦-%23f5b423) 
+  ![Badge](https://img.shields.io/badge/5&nbsp;♣-%230000ff) 
+  ![Badge](https://img.shields.io/badge/7&nbsp;♣-%230000ff) 
+  ![Badge](https://img.shields.io/badge/6&nbsp;♥-%23ff0000) 
+  ![Badge](https://img.shields.io/badge/J&nbsp;♥-%23ff0000)
 - Showdown:
-  - P1: ![Badge](https://img.shields.io/badge/A-♦-%23f5b423) 
-  ![Badge](https://img.shields.io/badge/A-♠-%23000000) 
-  ![Badge](https://img.shields.io/badge/J-♥-%23ff0000) 
-  ![Badge](https://img.shields.io/badge/7-♣-%230000ff) 
-  ![Badge](https://img.shields.io/badge/6-♥-%23ff0000)   ->  Pair of Aces. First kicker: Jack; second kicker: 7
-  - P2: ![Badge](https://img.shields.io/badge/A-♦-%23f5b423) 
-  ![Badge](https://img.shields.io/badge/A-♥-%23ff0000) 
-  ![Badge](https://img.shields.io/badge/J-♥-%23ff0000) 
-  ![Badge](https://img.shields.io/badge/9-♦-%23f5b423) 
-  ![Badge](https://img.shields.io/badge/7-♣-%230000ff)   ->  Pair of Aces. First kicker: Jack; second kicker: 9
-  - P3: ![Badge](https://img.shields.io/badge/A-♦-%23f5b423) 
-  ![Badge](https://img.shields.io/badge/A-♣-%230000ff) 
-  ![Badge](https://img.shields.io/badge/J-♥-%23ff0000) 
-  ![Badge](https://img.shields.io/badge/10-♥-%23ff0000) 
-  ![Badge](https://img.shields.io/badge/7-♣-%230000ff)   ->  Pair of Aces. First kicker: Jack; second kicker: 10 - Winner
+  - P1: ![Badge](https://img.shields.io/badge/A&nbsp;♦-%23f5b423) 
+  ![Badge](https://img.shields.io/badge/A&nbsp;♠-%23000000) 
+  ![Badge](https://img.shields.io/badge/J&nbsp;♥-%23ff0000) 
+  ![Badge](https://img.shields.io/badge/7&nbsp;♣-%230000ff) 
+  ![Badge](https://img.shields.io/badge/6&nbsp;♥-%23ff0000)   ->  Pair of Aces. Kicker: 7
+  - P2: ![Badge](https://img.shields.io/badge/A&nbsp;♦-%23f5b423) 
+  ![Badge](https://img.shields.io/badge/A&nbsp;♥-%23ff0000) 
+  ![Badge](https://img.shields.io/badge/J&nbsp;♥-%23ff0000) 
+  ![Badge](https://img.shields.io/badge/9&nbsp;♦-%23f5b423) 
+  ![Badge](https://img.shields.io/badge/7&nbsp;♣-%230000ff)   ->  Pair of Aces. Kicker: 9
+  - P3: ![Badge](https://img.shields.io/badge/A&nbsp;♦-%23f5b423) 
+  ![Badge](https://img.shields.io/badge/A&nbsp;♣-%230000ff) 
+  ![Badge](https://img.shields.io/badge/J&nbsp;♥-%23ff0000) 
+  ![Badge](https://img.shields.io/badge/10&nbsp;♥-%23ff0000) 
+  ![Badge](https://img.shields.io/badge/7&nbsp;♣-%230000ff)   ->  Pair of Aces. Kicker: 10 - Winner
 
 ### Ex 2:
 - Players:
-  - P1: ![Badge](https://img.shields.io/badge/5-♠-%23000000) ![Badge](https://img.shields.io/badge/3-♠-%23000000) 
-  - P2: ![Badge](https://img.shields.io/badge/7-♠-%23000000) ![Badge](https://img.shields.io/badge/2-♠-%23000000)
+  - P1: ![Badge](https://img.shields.io/badge/5&nbsp;♠-%23000000) ![Badge](https://img.shields.io/badge/3&nbsp;♠-%23000000) 
+  - P2: ![Badge](https://img.shields.io/badge/7&nbsp;♠-%23000000) ![Badge](https://img.shields.io/badge/2&nbsp;♠-%23000000)
 - Table: 
-  - ![Badge](https://img.shields.io/badge/K-♠-%23000000) 
-  ![Badge](https://img.shields.io/badge/7-♥-%23ff0000) 
-  ![Badge](https://img.shields.io/badge/8-♠-%23000000) 
-  ![Badge](https://img.shields.io/badge/J-♣-%230000ff) 
-  ![Badge](https://img.shields.io/badge/6-♠-%23000000) 
+  - ![Badge](https://img.shields.io/badge/K&nbsp;♠-%23000000) 
+  ![Badge](https://img.shields.io/badge/7&nbsp;♥-%23ff0000) 
+  ![Badge](https://img.shields.io/badge/8&nbsp;♠-%23000000) 
+  ![Badge](https://img.shields.io/badge/J&nbsp;♣-%230000ff) 
+  ![Badge](https://img.shields.io/badge/6&nbsp;♠-%23000000) 
 - Showdown:
-  - P1: ![Badge](https://img.shields.io/badge/K-♠-%23000000) 
-  ![Badge](https://img.shields.io/badge/8-♠-%23000000) 
-  ![Badge](https://img.shields.io/badge/6-♠-%23000000) 
-  ![Badge](https://img.shields.io/badge/5-♠-%23000000) 
-  ![Badge](https://img.shields.io/badge/3-♠-%23000000)   ->  Flush of spades, King-high. First kicker: 8; second kicker: 6
-  - P2: ![Badge](https://img.shields.io/badge/K-♠-%23000000)
-  ![Badge](https://img.shields.io/badge/8-♠-%23000000) 
-  ![Badge](https://img.shields.io/badge/7-♠-%23000000) 
-  ![Badge](https://img.shields.io/badge/6-♠-%23000000) 
-  ![Badge](https://img.shields.io/badge/2-♠-%23000000)   ->  Flush of spades, King-high. First kicker: 8; second kicker: 7   - Winner
+  - P1: ![Badge](https://img.shields.io/badge/K&nbsp;&nbsp;♠-%23000000) 
+  ![Badge](https://img.shields.io/badge/8♠-%23000000) 
+  ![Badge](https://img.shields.io/badge/6&nbsp;♠-%23000000) 
+  ![Badge](https://img.shields.io/badge/5&nbsp;♠-%23000000) 
+  ![Badge](https://img.shields.io/badge/3&nbsp;♠-%23000000)   ->  Flush of spades, King-high. Kicker: 6
+  - P2: ![Badge](https://img.shields.io/badge/K&nbsp;♠-%23000000)
+  ![Badge](https://img.shields.io/badge/8&nbsp;♠-%23000000) 
+  ![Badge](https://img.shields.io/badge/7&nbsp;♠-%23000000) 
+  ![Badge](https://img.shields.io/badge/6&nbsp;♠-%23000000) 
+  ![Badge](https://img.shields.io/badge/2&nbsp;♠-%23000000)   ->  Flush of spades, King-high. Kicker: 7   - Winner
 
 ### Ex 3:
 - Players:
-  - P1: ![Badge](https://img.shields.io/badge/5-♣-%230000ff) ![Badge](https://img.shields.io/badge/A-♦-%23f5b423) 
-  - P2: ![Badge](https://img.shields.io/badge/8-♠-%23000000) ![Badge](https://img.shields.io/badge/K-♥-%23ff0000)
+  - P1: ![Badge](https://img.shields.io/badge/5&nbsp;♣-%230000ff) ![Badge](https://img.shields.io/badge/A&nbsp;♦-%23f5b423) 
+  - P2: ![Badge](https://img.shields.io/badge/8&nbsp;♠-%23000000) ![Badge](https://img.shields.io/badge/K&nbsp;♥-%23ff0000)
 - Table:
-  - ![Badge](https://img.shields.io/badge/5-♠-%23000000) 
-  ![Badge](https://img.shields.io/badge/5-♥-%23ff0000) 
-  ![Badge](https://img.shields.io/badge/8-♦-%23f5b423) 
-  ![Badge](https://img.shields.io/badge/Q-♣-%230000ff) 
-  ![Badge](https://img.shields.io/badge/8-♣-%230000ff) 
+  - ![Badge](https://img.shields.io/badge/5&nbsp;♠-%23000000) 
+  ![Badge](https://img.shields.io/badge/5&nbsp;♥-%23ff0000) 
+  ![Badge](https://img.shields.io/badge/8&nbsp;♦-%23f5b423) 
+  ![Badge](https://img.shields.io/badge/Q&nbsp;♣-%230000ff) 
+  ![Badge](https://img.shields.io/badge/8&nbsp;♣-%230000ff) 
 - Showdown:
-  - P1: ![Badge](https://img.shields.io/badge/5-♠-%23000000) 
-  ![Badge](https://img.shields.io/badge/5-♥-%23ff0000) 
-  ![Badge](https://img.shields.io/badge/5-♣-%230000ff) 
-  ![Badge](https://img.shields.io/badge/8-♦-%23f5b423) 
-  ![Badge](https://img.shields.io/badge/8-♣-%230000ff)   ->  Full house, Fives over eights
-  - P2: ![Badge](https://img.shields.io/badge/8-♦-%23f5b423) 
-  ![Badge](https://img.shields.io/badge/8-♣-%230000ff) 
-  ![Badge](https://img.shields.io/badge/8-♠-%23000000) 
-  ![Badge](https://img.shields.io/badge/5-♠-%23000000) 
-  ![Badge](https://img.shields.io/badge/5-♥-%23ff0000)   ->  Full house, Eights over fives   - Winner
+  - P1: ![Badge](https://img.shields.io/badge/5&nbsp;♠-%23000000) 
+  ![Badge](https://img.shields.io/badge/5&nbsp;♥-%23ff0000) 
+  ![Badge](https://img.shields.io/badge/5&nbsp;♣-%230000ff) 
+  ![Badge](https://img.shields.io/badge/8&nbsp;♦-%23f5b423) 
+  ![Badge](https://img.shields.io/badge/8&nbsp;♣-%230000ff)   ->  Full house, Fives over eights
+  - P2: ![Badge](https://img.shields.io/badge/8&nbsp;♦-%23f5b423) 
+  ![Badge](https://img.shields.io/badge/8&nbsp;♣-%230000ff) 
+  ![Badge](https://img.shields.io/badge/8&nbsp;♠-%23000000) 
+  ![Badge](https://img.shields.io/badge/5&nbsp;♠-%23000000) 
+  ![Badge](https://img.shields.io/badge/5&nbsp;♥-%23ff0000)   ->  Full house, Eights over fives   - Winner
 
 
-## The API
+## #Evaluating a Hand <a name="eval"></a>
 Input a 7 card hand (2 player cards + 5 community cards, the order is irrelevant), and get the best 5 card game combination, along with a floating point number representing that hand's strength. The integer part of that value gives you the hand's general rank, while the decimal places represent the five cards, in the right order, used for that hand. When evaluating the winner of a hand, compare the float value of each player's hand, and the biggest value gets all the chips! The notations here are:
 
 ### Input:
