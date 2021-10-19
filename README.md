@@ -74,8 +74,8 @@ On the showdown, it is not uncommon that two or more players manage to assemble 
   ![Badge](https://img.shields.io/badge/J&nbsp;♣-%230000ff) 
   ![Badge](https://img.shields.io/badge/6&nbsp;♠-%23000000) 
 - Showdown:
-  - P1: ![Badge](https://img.shields.io/badge/K&nbsp;&nbsp;♠-%23000000) 
-  ![Badge](https://img.shields.io/badge/8♠-%23000000) 
+  - P1: ![Badge](https://img.shields.io/badge/K&nbsp;♠-%23000000) 
+  ![Badge](https://img.shields.io/badge/8&nbsp;♠-%23000000) 
   ![Badge](https://img.shields.io/badge/6&nbsp;♠-%23000000) 
   ![Badge](https://img.shields.io/badge/5&nbsp;♠-%23000000) 
   ![Badge](https://img.shields.io/badge/3&nbsp;♠-%23000000)   ->  Flush of spades, King-high. Kicker: 6
@@ -108,7 +108,7 @@ On the showdown, it is not uncommon that two or more players manage to assemble 
   ![Badge](https://img.shields.io/badge/5&nbsp;♥-%23ff0000)   ->  Full house, Eights over fives   - Winner
 
 
-## #Evaluating a Hand <a name="eval"></a>
+## Evaluating a Hand <a name="eval"></a>
 Input a 7 card hand (2 player cards + 5 community cards, the order is irrelevant), and get the best 5 card game combination, along with a floating point number representing that hand's strength. The integer part of that value gives you the hand's general rank, while the decimal places represent the five cards, in the right order, used for that hand. When evaluating the winner of a hand, compare the float value of each player's hand, and the biggest value gets all the chips! The notations here are:
 
 ### Input:
