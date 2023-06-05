@@ -169,7 +169,7 @@ All those values will compose the hand total value like:
 ```
 
 The output is a JSON object with the 5 cards used in the hand, and the hand's value, like:
-```JSON
+```
 >> "3cKs9dTdTc5s6d" //Par of Tens, King as kicker
 {
   "hand": [...],
@@ -177,7 +177,7 @@ The output is a JSON object with the 5 cards used in the hand, and the hand's va
 }
 ```
 
-```JSON
+```
 >> "5c3d5s2h5cThJs" //Three Fives, Jack as kicker
 {
   "hand": [...],
@@ -185,7 +185,7 @@ The output is a JSON object with the 5 cards used in the hand, and the hand's va
 }
 ```
 
-```JSON
+```
 >> "6c8cTc5s4sJcQc" //Flush, Queen high
 {
   "hand": [...],
